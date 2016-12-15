@@ -1,0 +1,24 @@
+package chet_necet_razn;
+import java.util.Scanner;
+
+public class Clas_chet {
+
+	public static void main(String[] args) {
+		Scanner console = new Scanner(System.in);
+		// TODO Auto-generated method stub
+		int a = console.nextInt();
+		int b = console.nextInt();
+		int c = console.nextInt();
+		System.out.println("числа четные");
+			if ((a % 2 == 0) && (b % 2 == 0) && (c % 2 == 0)) {
+				System.out.println("числа четные");
+			}
+			else if ((a % 2 == 1) && (b % 2 == 1) && (c % 2 == 1)) {
+				System.out.println("числа нечетные");
+			}
+			else {
+				System.out.println("числа разные");
+			}
+	}
+
+}
