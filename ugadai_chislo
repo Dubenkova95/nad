@@ -1,64 +1,64 @@
-импорт ява.утиль.Сканер;
+import java.util.Scanner;
 
 
-общественный класс GuessingNumber
+public class GuessingNumber
 {
-    публичный статический пустота главный(строка[] аргументы) {
+    public static void main(String[] args) {
 
-        Сканер в = новый сканер(система.в);
+        Scanner in = new Scanner(System.in);
 
-        Системы.из.код println("ОТ:");
-        инт С = В.nextInt();
-        Системы.из.код println("ДО:");
-        инт к = в.nextInt();
+        System.out.println("ОТ:");
+        int from = in.nextInt();
+        System.out.println("ДО:");
+        int to   = in.nextInt();
         
-        инт мин = с;
-        инт Макс = к;
-        инт Ср = Макс / 2;
+        int min = from;
+        int max = to;
+        int avg = max / 2;
 
-        голец ответа;
+        char answer;
         
-        //Если указали неправильно диапазон (от и до)
-        если(макс < мин) {
- мин = в;
- Макс = с;
- Ср = Макс / 2;
+        //Если неправильно указали диапазон (от и до)
+        if(max < min) {
+            min = to;
+            max = from;
+            avg = max / 2;
         }
         
-        в то время как (правда) {
+        while (true) {
 
-            если(макс == мин) {
+            if(max == min) {
 
-                Системы.из.код println("Ответ: " + Макс);
-                перерыв;
+                System.out.println("Ответ: " + max);
+                break;
 
- } остальное, если(макс - мин == 1) {
-                Системы.из.код println("Ваше число < " + Макс);
- ответ = в.далее().используя метод charat(0);
+            } else if(max - min == 1) {
+                System.out.println("Ваше число < " + max);
+                answer = in.next().charAt(0);
 
-                если (ответ == 'г') {
-                    если(Ср < 0) {
- Ср--;
-                        Системы.из.код println("Ответ: " + Ср);
- } еще {
-                        Системы.из.код println("Ответ: " + Ср);
+                if (answer == 'y') {
+                    if(avg < 0) {
+                        avg--;
+                        System.out.println("Ответ: " + avg);
+                    } else {
+                        System.out.println("Ответ: " + avg);
                     }
- } еще {
-                    Системы.из.код println("Ответ: " + Макс);
+                } else {
+                    System.out.println("Ответ: " + max);
                 }
 
-                перерыв;
+                break;
             }
 
-            Системы.из.код println("Ваше число >= " + авг + " ? (г/н)");
- ответ = в.далее().используя метод charat(0);
+            System.out.println("Ваше число >= " + avg + " ? (y/n)");
+            answer = in.next().charAt(0);
 
-            если(ответ == 'г') {
- мин = Ср;
- Ср = (макс + мин) / 2;
- } еще {
- Макс = Ср;
- Ср = (макс + мин) / 2;
+            if(answer == 'y') {
+                min = avg;
+                avg = (max + min) / 2;
+            } else {
+                max = avg;
+                avg = (max + min) / 2;
             }
         }
     }
