@@ -1,20 +1,20 @@
-импорт ява.яз.Математика;
-импорт ява.утиль.Сканер;
+import java.lang.Math;
+import java.util.Scanner;
 
-класс чипсы
+class Chips
 {
-    публичный статический пустота главный(строка[] аргументы)
+    public static void main(String[] args)
     {
-        Сканер в = новый сканер(система.в);
-        инт фишки = в.nextInt();
+        Scanner in = new Scanner(System.in);
+        int chips = in.nextInt();
  
-        если(чипы % 4 == 0 || фишки == 1)
+        if(chips % 4 == 0 || chips == 1)
         {
-            Системы.из.код println("да");
+            System.out.println("YES");
         }
-        еще
+        else
         {
-            Системы.из.код println("нет");
+            System.out.println("NO");
         }
     }
 }
