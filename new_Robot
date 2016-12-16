@@ -1,141 +1,139 @@
-перечисление направлении {
-    Вверх,
-    Вниз,
-    Слева,
-    Право
+enum Direction {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
 }
 
-общественный класс робот {
+public class Robot {
 
-    Направление реж;
-    Тип int х, у;
-    статические инт numberOfRobots = 0;
+    Direction dir;
+    int x, y;
+    static int numberOfRobots = 0;
 
-    общественные робота (Тип int х, int у г, направление дир) {
-        это.х = х;
-        это.г = г;
-        это.реж = реж;
- numberOfRobots++;
+    public Robot (int x, int y, Direction dir) {
+        this.x = x;
+        this.y = y;
+        this.dir = dir;
+        numberOfRobots++;
     }
 
-    общественное направление getDirection() {
-        возвращение реж;
+    public Direction getDirection() {
+        return dir;
     }
 
-    общественный Тип int getX() {возвращение х;}
-    публичных инт гети() {возвращение г;}
+    public int getX() {return x;}
+    public int getY() {return y;}
 
-    общественного недействительными налево() {
+    public void turnLeft() {
 
-        переключатель (getDirection()) {
-            случае вверх:
- реж = направление.Слева;
-                перерыв;
-            случае вниз:
- реж = направление.Права;
-                перерыв;
-            дело осталось:
- реж = направление.Вниз;;
-                перерыв;
-            дело право:
- реж = направление.Вверх;
-                перерыв;
+        switch (getDirection()) {
+            case UP:
+                dir = Direction.LEFT;
+                break;
+            case DOWN:
+                dir = Direction.RIGHT;
+                break;
+            case LEFT:
+                dir = Direction.DOWN;;
+                break;
+            case RIGHT:
+                dir = Direction.UP;
+                break;
         }
 
     }
 
-    общественного недействительными направо() {
+    public void turnRight() {
 
-        переключатель (getDirection()) {
-            случае вверх:
- реж = направление.Права;
-                перерыв;
-            случае вниз:
- реж = направление.Слева;
-                перерыв;
-            дело осталось:
- реж = направление.Вверх;
-                перерыв;
-            дело право:
- реж = направление.Вниз;
-                перерыв;
+        switch (getDirection()) {
+            case UP:
+                dir = Direction.RIGHT;
+                break;
+            case DOWN:
+                dir = Direction.LEFT;
+                break;
+            case LEFT:
+                dir = Direction.UP;
+                break;
+            case RIGHT:
+                dir = Direction.DOWN;
+                break;
         }
 
     }
 
-    общественного недействительными stepForward() {
+    public void stepForward() {
 
-        переключатель (getDirection()) {
-            случае вверх:
- г++;
-                перерыв;
-            случае вниз:
- г--;
-                перерыв;
-            дело осталось:
- х--;
-                перерыв;
-            дело право:
- х++;
-                перерыв;
+        switch (getDirection()) {
+            case UP:
+                y++;
+                break;
+            case DOWN:
+                y--;
+                break;
+            case LEFT:
+                x--;
+                break;
+            case RIGHT:
+                x++;
+                break;
         }
 
     }
 
-    общественного недействительными говорить() {
-        инт х = getX();
-        инт г = гети();
+    public void toSpeak() {
+        int x = getX();
+        int y = getY();
 
-        Системы.из.код println("Координаты робота: х= " + х + " у= " + у);
+        System.out.println("Координаты робота: x= " + x + " y= " + y);
     }
 }
 
-класс SmartRobot расширяет робот {
+class SmartRobot extends Robot {
 
-    общественные SmartRobot(Тип int х, int у г, направление дир) {
-        супер(х,Г,реж);
+    public SmartRobot(int x, int y, Direction dir) {
+        super(x,y,dir);
     }
 
-    пустота moveRobot(инт токс, инт игрушка) {
+    void moveRobot(int toX, int toY) {
 
-        а (х != токс || г != игрушка) {
+        while (x != toX || y != toY) {
 
-            если(х < токс) {
-                пока (getDirection() != Направлении.Право)
+            if(x < toX) {
+                while (getDirection() != Direction.RIGHT)
                 {
- направо();
+                    turnRight();
                 }
- } остальное, если(х > токс) {
-                пока (getDirection() != Направлении.Слева)
+            } else if(x > toX) {
+                while (getDirection() != Direction.LEFT)
                 {
- налево();
+                    turnLeft();
                 }
             }
 
-            если(г < игрушка) {
+            if(y < toY) {
 
-                пока (getDirection() != Направлении.Вверх)
+                while (getDirection() != Direction.UP)
                 {
- направо();
+                    turnRight();
                 }
 
- } остальное, если(г > игрушка) {
-                пока (getDirection() != Направлении.Вниз)
+            } else if(y > toY)  {
+                while (getDirection() != Direction.DOWN)
                 {
- налево();
+                    turnLeft();
                 }
             }
 
- stepForward();
- говорить();
+            stepForward();
+            toSpeak();
         }
     }
 
-    публичный статический пустота главный(строка[] аргументы)
+    public static void main(String[] args)
     {
-        SmartRobot р = новый SmartRobot(0, 0, направлении.Слева);
- р.moveRobot(6, 8);
+        SmartRobot r = new SmartRobot(0, 0, Direction.LEFT);
+        r.moveRobot(6, 8);
     }
 }
-
-
