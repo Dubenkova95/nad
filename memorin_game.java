@@ -1,196 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.nadia.newproject.MainActivity">
+package com.example.nadia.newproject;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="0"
-        android:id="@+id/Step"
-        android:layout_alignTop="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:textStyle="bold" />
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="countStep:"
-        android:id="@+id/textView"
-        android:textColor="#f0aa11"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/Step" />
+public class MainActivity extends AppCompatActivity {
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button1"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:tag="0"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button2"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button3"
-        android:layout_toEndOf="@+id/button3"
-        android:tag="1"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button3"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button4"
-        android:layout_toStartOf="@+id/button6"
-        android:tag="2"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button4"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button5"
-        android:layout_toStartOf="@+id/button7"
-        android:tag="3"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button5"
-        android:onClick="onClick"
-        android:layout_below="@+id/button8"
-        android:layout_toStartOf="@+id/button8"
-        android:tag="4"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button6"
-        android:onClick="onClick"
-        android:layout_below="@+id/button10"
-        android:layout_toEndOf="@+id/button7"
-        android:tag="5"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button7"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button8"
-        android:layout_toStartOf="@+id/button10"
-        android:tag="6"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button8"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button9"
-        android:layout_toStartOf="@+id/button11"
-        android:tag="7"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button9"
-        android:onClick="onClick"
-        android:layout_below="@+id/button12"
-        android:layout_toStartOf="@+id/button12"
-        android:tag="8"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button10"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button11"
-        android:layout_alignStart="@+id/button14"
-        android:tag="9"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button11"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button12"
-        android:layout_toStartOf="@+id/button14"
-        android:tag="10"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button12"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button13"
-        android:layout_toEndOf="@+id/button13"
-        android:tag="11"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button13"
-        android:onClick="onClick"
-        android:layout_below="@+id/button1"
-        android:layout_alignParentStart="true"
-        android:tag="12"/>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button14"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button15"
-        android:layout_toEndOf="@+id/button15"
-        android:tag="13"/>
+    Random rnd = new Random();
+    int[] cards = mixedArray(16);
+    Button b1, b2;
+    int countClick = 1;
+    int countStep  = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button15"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button16"
-        android:layout_toEndOf="@+id/button16"
-        android:tag="14"/>
+    public int[] mixedArray(int sizePlayingField)
+    {
+        int endIndexArrayInt  = sizePlayingField;
+        int endIndexArrayList = (sizePlayingField / 2) + 1;
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button16"
-        android:onClick="onClick"
-        android:layout_alignTop="@+id/button1"
-        android:layout_toEndOf="@+id/button1"
-        android:tag="15"/>
+        int randomdArrayInt[] = new int[sizePlayingField];
+        ArrayList<Integer> randomdArrayList = new ArrayList();
 
-</RelativeLayout>
+        for(int i = 1; i < endIndexArrayList; i++)
+        {
+            randomdArrayList.add(i);
+            randomdArrayList.add(i);
+        }
+
+        Collections.shuffle(randomdArrayList);
+
+        for(int i = 0; i < endIndexArrayInt; i++)
+        {
+            randomdArrayInt[i] = randomdArrayList.get(i);
+        }
+
+        return randomdArrayInt;
+    }
+
+    public void onClick(View v)
+    {
+        TextView textCountStep = (TextView)findViewById(R.id.Step);
+        Button button = (Button) v;
+        String tag = button.getTag().toString();
+        int index = Integer.parseInt(tag);
+
+        if(countClick == 1)
+        {
+            button.setText(Integer.toString(cards[index]));
+            b1 = button;
+            countClick = 2;
+            countStep++;
+        }
+        else if(countClick == 2)
+        {
+            button.setText(Integer.toString(cards[index]));
+            b2 = button;
+
+            if(b1.getId() == b2.getId())
+            {
+                b1.setText("");
+                b2.setText("");
+                countClick = 1;
+            }
+            else if(b1.getText().equals(b2.getText()))
+            {
+                /*
+                b1.setVisibility(View.INVISIBLE);
+                b2.setVisibility(View.INVISIBLE);
+                b1.setText("");
+                b2.setText("");
+                */
+                b1.setEnabled(false);
+                b2.setEnabled(false);
+                countClick = 1;
+            }
+            else
+            {
+                countClick = 3;
+            }
+
+            countStep++;
+        }
+        else if(countClick == 3)
+        {
+            b1.setText("");
+            b2.setText("");
+            countClick = 1;
+        }
+
+        textCountStep.setText(Integer.toString(countStep));
+    }
+
+}
