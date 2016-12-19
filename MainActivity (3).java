@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         max = Integer.valueOf(textTo.getText().toString());
         avg = (max + min)  / 2;
 
-        //Если неправильно указали диапазон (от и до) меняю местами
+        //Если неправильно указали диапазон (от и до) - меняю местами
         if(max < min) {
             min = Integer.valueOf(textTo.getText().toString());;
             max = Integer.valueOf(textFrom.getText().toString());
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     {
         question.setText("Ваше число >=" + Integer.toString(avg));
 
-        //Если заданы одинаковые числа вывожу ответ
+        //Если заданы одинаковые числа - вывожу ответ
         if(max == min)
         {
             answer.setText(Integer.toString(max));
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
                 question.setText("Ваше число >=" + Integer.toString(avg));
 
-                if ((max - min) == 1) //Если осталось 2 числа, спрашиваю у пользователя какое из них он загадал
+                if ((max - min) == 1) //Если осталось 2 числа - спрашиваю у пользователя, какое из них он загадал
                 {
                     question.setText("Ваше число = " + Integer.toString(min) + " ?");
 
