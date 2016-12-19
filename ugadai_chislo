@@ -22,7 +22,7 @@ public class GuessingNumber
         if(max < min) {
             min = to;
             max = from;
-            avg = (emax + min) / 2;
+            avg = (max + min) / 2;
         }
         
         while (true) {
